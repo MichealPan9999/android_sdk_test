@@ -7,18 +7,25 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btn_safr;
     TextView tv_show;
+    EditText et_password;
+    CheckBox cb_show_hide;
     private final int REQUEST_CODE = 0x100;
 
     @Override
@@ -26,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getDiaplayMetrics();
-
         btn_safr = findViewById(R.id.btn_safr);
         tv_show = findViewById(R.id.tv_show);
         btn_safr.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +41,22 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Activity_b.class);
                 startActivityForResult(intent, REQUEST_CODE);
                 tv_show.setTypeface(Typeface.createFromAsset(getAssets(), "BinnerD.ttf"));
+            }
+        });
+        et_password = findViewById(R.id.et_password);
+        cb_show_hide = findViewById(R.id.cb_show_hide);
+        cb_show_hide.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener(){
+
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (cb_show_hide.isChecked())
+                {
+                    et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    cb_show_hide.setText("隐藏密码");
+                }else{
+                    et_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    cb_show_hide.setText("显示密码");
+                }
             }
         });
     }
@@ -68,21 +90,40 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 0:
-                openOptionDialog();
+                openOptionDialogAbout();
                 break;
             case 1:
-                finish();
+                openOptionDialogExit();
                 break;
         }
         return true;
     }
 
-    private void openOptionDialog() {
+    private void openOptionDialogAbout() {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.about)
                 .setMessage("版本号 V1.1.8")
                 .setPositiveButton(R.string.confirm
                         , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).show();
+    }
+    private void openOptionDialogExit() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.exit)
+                .setMessage("确定要退出吗")
+                .setPositiveButton(R.string.yes
+                        , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        })
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 

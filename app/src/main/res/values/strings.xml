@@ -3,4 +3,6 @@
     <string name="about">关于</string>
     <string name="exit">退出</string>
     <string name="confirm">确定</string>
+    <string name="no">否</string>
+    <string name="yes">是</string>
 </resources>

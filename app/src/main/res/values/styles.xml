@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!--//如果style中定义的属性和View中定义的重复，View中的属性会覆盖style中定义的属性。-->
+
+    <style name="MyStyle" parent="Theme.AppCompat">     <!--设置name 和parent-->
+        <item name="android:textColor">#000</item>     <!--字体颜色-->
+        <item name="android:textSize">20sp</item>      <!--字体大小-->
+        <item name="android:layout_height">wrap_content</item>    <!--控件高度-->
+        <item name="android:layout_width">match_parent</item>     <!--控件宽度-->
+        <item name="android:background">#8f00</item>              <!--背景色-->
+        <item name="android:gravity">center_horizontal</item>     <!--view中内容的位置限定-->
+    </style>
+
+    <!--//此处没有设置Parent属性，但由于name以MyStyle.开头，所以MyStyle.red会完全继承MyStyle-->
+    <style name="MyStyle.red" >
+        <item name="android:textColor">#000</item>              <!--字体颜色-->
+        <item name="android:textSize">20sp</item>               <!--字体大小-->
+        <item name="android:layout_height">wrap_content</item>  <!--控件高度-->
+        <item name="android:layout_width">match_parent</item>   <!--控件宽度-->
+        <item name="android:background">#8f00</item>            <!--背景色-->
+        <item name="android:gravity">center_horizontal</item>   <!--view中内容的位置限定-->
+        <item name="android:layout_weight">1</item>             <!--比重-->
+    </style>
+
+    <!--//同上，MyStyle.red.big会完全继承MyStyle.red-->
+    <style name="MyStyle.red.big" >
+        <item name="android:textColor">#000</item>               <!--字体颜色-->
+        <item name="android:textSize">20sp</item>                <!--字体大小-->
+        <item name="android:layout_height">wrap_content</item>   <!--控件高度-->
+        <item name="android:layout_width">match_parent</item>    <!--控件宽度-->
+        <item name="android:background">#8f00</item>             <!--背景色-->
+        <item name="android:gravity">center_horizontal</item>    <!--view中内容的位置限定-->
+        <item name="android:layout_weight">1</item>              <!--比重-->
+    </style>
+
+</resources>

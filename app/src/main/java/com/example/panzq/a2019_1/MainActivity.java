@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_safr , btn_move2sd;
+    Button btn_safr , btn_move2sd,btn_2clock;
     TextView tv_show;
     EditText et_password;
     CheckBox cb_show_hide;
@@ -71,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
                     et_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     cb_show_hide.setText("显示密码");
                 }
+            }
+        });
+        btn_2clock = findViewById(R.id.btn_2clock);
+        btn_2clock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,ClockActivity.class));
             }
         });
     }

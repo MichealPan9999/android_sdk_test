@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".Activity_b" />
         <activity android:name=".ClockActivity" />
-        <activity android:name=".SlidingDrawerActivity"></activity>
+        <activity android:name=".SlidingDrawerActivity" />
+        <activity android:name=".LindifyActivity"></activity>
     </application>
 
 </manifest>

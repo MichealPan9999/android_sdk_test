@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/MyStyle"
+        android:text="请输入电话/E-mail/网址" />
+    <EditText
+        android:id="@+id/et_linkify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_content"
+        style="@style/MyStyle" />
+    <Button
+        android:id="@+id/btn_Linkify"
+        style="@style/MyStyle"
+        android:text="自动链接内容" />
+
+
+</LinearLayout>

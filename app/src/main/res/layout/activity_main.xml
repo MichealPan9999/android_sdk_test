@@ -27,6 +27,10 @@
         android:id="@+id/btn_2slidingDrawer"
         style="@style/MyStyle"
         android:text="隐藏式抽屉"/>
+    <Button
+        android:id="@+id/btn_2linkify"
+        style="@style/MyStyle"
+        android:text="Linkify 功能"/>
 
     <EditText
         android:id="@+id/et_password"

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -22,7 +23,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_safr;
+    Button btn_safr , btn_move2sd;
     TextView tv_show;
     EditText et_password;
     CheckBox cb_show_hide;
@@ -31,16 +32,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
         setContentView(R.layout.activity_main);
+
         getDiaplayMetrics();
         btn_safr = findViewById(R.id.btn_safr);
         tv_show = findViewById(R.id.tv_show);
+        btn_move2sd = findViewById(R.id.btn_move2sd);
         btn_safr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Activity_b.class);
                 startActivityForResult(intent, REQUEST_CODE);
                 tv_show.setTypeface(Typeface.createFromAsset(getAssets(), "BinnerD.ttf"));
+            }
+        });
+        btn_move2sd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("android.intent.action.MANAGE_PACKAGE_STORAGE");
+                startActivity(intent);
             }
         });
         et_password = findViewById(R.id.et_password);

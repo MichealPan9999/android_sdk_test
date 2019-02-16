@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity_b" />
-        <activity android:name=".ClockActivity"></activity>
+        <activity android:name=".ClockActivity" />
+        <activity android:name=".SlidingDrawerActivity"></activity>
     </application>
 
 </manifest>

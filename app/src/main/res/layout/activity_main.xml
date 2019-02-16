@@ -23,6 +23,10 @@
         android:id="@+id/btn_2clock"
         style="@style/MyStyle"
         android:text="显示时间"/>
+    <Button
+        android:id="@+id/btn_2slidingDrawer"
+        style="@style/MyStyle"
+        android:text="隐藏式抽屉"/>
 
     <EditText
         android:id="@+id/et_password"
